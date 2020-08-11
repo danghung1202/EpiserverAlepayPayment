@@ -6,6 +6,10 @@ After installment Alepay payment, following these steps to setting payment metho
 
 ### For Editor
 
+0. In Commerce Manager, you must import the AlepayPayment MetaClass from the file `AlepayPaymentMetaClass.xml`
+
+Go CM > Administration > Order System > Meta Classes > Import MetaClass -> Drag the `AlepayPaymentMetaClass.xml` to import
+
 1. In Commerce Manager, create the Alepay payment method
 
 > The `System Keyword` must have value of `Alepay`
