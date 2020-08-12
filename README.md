@@ -6,11 +6,11 @@ After installation Alepay payment, following these steps for setting payment met
 
 ### For Editor
 
-0. In Commerce Manager, you must import the AlepayPayment MetaClass from the file `AlepayPaymentMetaClass.xml`
+1. In Commerce Manager, you must import the AlepayPayment MetaClass from the file `AlepayPaymentMetaClass.xml`
 
 Go CM > Administration > Order System > Meta Classes > Import MetaClass -> Drag the `AlepayPaymentMetaClass.xml` to import
 
-1. In Commerce Manager, create the Alepay payment method
+2. In Commerce Manager, create the Alepay payment method
 
 > The `System Keyword` must have value of `Alepay`
 
@@ -30,9 +30,9 @@ Checksum Key: `MHVxYcCHOulC5ST1X8dfOvjdBNPuDK`
 
 
 
-2. In Episerver CMS, create the page with page type of `AlepayPaymentPage`
+3. In Episerver CMS, create the page with page type of `AlepayPaymentPage`
    
-3. In Episerver CMS, the StartPage must have three `ContentReference` properties as below:
+4. In Episerver CMS, the StartPage must have three `ContentReference` properties as below:
    
    * `CheckoutPage` -> point to your Checkout page
    * `AlepayPaymentPage` -> point to the Alepay Payment Page
@@ -44,7 +44,9 @@ Checksum Key: `MHVxYcCHOulC5ST1X8dfOvjdBNPuDK`
 
 1. User choose payment method and place order, the site will redirect to AlePay payment gateway
 
-When process payment, the result will contain the redirect url. In the method which placed order, you should redirect to this url. All payment parameters which user chose such as payment type (Credit, Installment or ATM), Bank Code, Payment Method (VISA, JCB or MASTERCARD) and Periods Month (3, 6, 9, 12 or 24) should store in `Cart` extend property has name of `AlepayCheckoutParams`
+When process payment, the result will contain the redirect url. In the method which placed order, you should redirect to this url. 
+
+All payment parameters which user chose such as payment type (Credit, Installment or ATM), Bank Code, Payment Method (VISA, JCB or MASTERCARD) and Periods Month (3, 6, 9, 12 or 24) should store in `Cart` extend property has name of `AlepayCheckoutParams`
 
 > This property's names can be override via the `ICmsPaymentPropertyService`
 
@@ -57,7 +59,7 @@ User choose Credit Card to payment:
 ```csharp
     cart.Properties["AlepayCheckoutParams"] = JsonConvert.SerializeObject(new CreditCardParams());
 ```
-User choose ATM Bank to payment:
+User choose Installment to payment:
 ```csharp
     cart.Properties["AlepayCheckoutParams"] = JsonConvert.SerializeObject(new InstallmentParams()
     {
@@ -67,7 +69,7 @@ User choose ATM Bank to payment:
     });
 ```
 
-User choose Installment to payment:
+User choose ATM Bank to payment:
 ```csharp
     cart.Properties["AlepayCheckoutParams"] = JsonConvert.SerializeObject(new DomesticCardParams()
     {
