@@ -1,8 +1,8 @@
 # EpiserverAlepayPayment
 
-## How installment?
+## How installation?
 
-After installment Alepay payment, following these steps to setting payment method:
+After installation Alepay payment, following these steps for setting payment method:
 
 ### For Editor
 
@@ -217,3 +217,14 @@ Output
 ]
 
 ```
+
+## Card test information
+
+|Card type |Card number |Expire month (mm/yy) |CVV ( 3 digits )|
+|----|----|----|----|
+|Visa |4111111111111111 |12/20 |123|
+|Visa 3D |4444000000004404 |12/20 |123 |
+|MasterCard |5555555555554444 |12/20 |123 |
+|JCB |3566111111111113 |12/20 |123|
+
+For installment, using 'SACOMBANK' as bank code and the card `4444000000004404`
